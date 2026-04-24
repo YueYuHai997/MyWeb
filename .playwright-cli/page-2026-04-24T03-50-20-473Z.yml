@@ -1,0 +1,63 @@
+- generic [ref=e2]:
+  - complementary [ref=e3]:
+    - link "小林的学习日志" [ref=e4] [cursor=pointer]:
+      - /url: "#/notes"
+    - generic [ref=e5]: 持续学习中
+    - heading "小林" [level=1] [ref=e7]
+    - paragraph [ref=e8]: 自学开发者 · 在探索中成长
+    - paragraph [ref=e9]: 聚焦 AI 工程化和全栈开发，记录每周学习笔记、项目进展与阅读思考。
+    - list [ref=e10]:
+      - listitem [ref=e11]:
+        - link "学习笔记" [ref=e12] [cursor=pointer]:
+          - /url: "#/notes"
+          - generic [ref=e13]: 📝
+          - generic [ref=e14]: 学习笔记
+      - listitem [ref=e15]:
+        - link "项目" [ref=e16] [cursor=pointer]:
+          - /url: "#/projects"
+          - generic [ref=e17]: 🛠️
+          - generic [ref=e18]: 项目
+      - listitem [ref=e19]:
+        - link "在读 / 读过" [ref=e20] [cursor=pointer]:
+          - /url: "#/reading"
+          - generic [ref=e21]: 📚
+          - generic [ref=e22]: 在读 / 读过
+      - listitem [ref=e23]:
+        - link "近况" [ref=e24] [cursor=pointer]:
+          - /url: "#/now"
+          - generic [ref=e25]: 🌱
+          - generic [ref=e26]: 近况
+    - generic [ref=e27]:
+      - link "GitHub" [ref=e28] [cursor=pointer]:
+        - /url: https://github.com
+      - link "邮箱" [ref=e29] [cursor=pointer]:
+        - /url: mailto:13022233853@163.com
+  - main [ref=e30]:
+    - article [ref=e64]:
+      - link "← 返回学习笔记" [ref=e65] [cursor=pointer]:
+        - /url: "#/notes"
+      - generic [ref=e66]:
+        - paragraph [ref=e67]: 📝 学习笔记
+        - heading "🧠 RAG 检索质量为什么不稳定" [level=1] [ref=e68]
+        - paragraph [ref=e69]: 2026-04-20 · AI 工程
+        - paragraph [ref=e70]: 这篇笔记主要回答一个很现实的问题：明明检索链路没变，为什么换一批数据、换一个问题，结果质量就开始漂移。
+        - generic [ref=e71]:
+          - generic [ref=e72]: RAG
+          - generic [ref=e73]: LangChain
+          - generic [ref=e74]: 调优
+      - generic [ref=e75]:
+        - generic [ref=e76]:
+          - heading "问题背景" [level=2] [ref=e77]
+          - paragraph [ref=e78]: 最初的方案是标准向量检索，离线切分文档，在线直接把 query 向量化后召回相似 chunk。这个方案在 demo 数据上看起来很顺，但一上真实资料库，命中率就开始波动。
+          - paragraph [ref=e79]: 问题不在某一个模型，而在检索链路对输入形态过于敏感。提问稍微口语化、上下文稍微缺一点，召回结果就会偏。
+        - generic [ref=e80]:
+          - heading "排查结论" [level=2] [ref=e81]
+          - paragraph [ref=e82]: 影响最大的不是 embedding 模型本身，而是 chunk 切分策略和 query 改写质量。chunk 太大，召回内容泛；chunk 太小，语义上下文丢失。
+          - paragraph [ref=e83]: 我后面加了 HyDE 和关键词补偿检索，混合召回后再做重排，质量明显稳定了一些。
+        - generic [ref=e84]:
+          - heading "当前做法" [level=2] [ref=e85]
+          - paragraph [ref=e86]: 离线阶段按语义段落优先切分，再限制 token 上限，避免硬切句子造成上下文断裂。
+          - paragraph [ref=e87]: 在线阶段先做 query 改写，再走向量检索 + 关键词检索，最后用重排模型压缩结果集。
+    - generic [ref=e88]:
+      - generic [ref=e89]: 小林的学习日志
+      - generic [ref=e90]: © 2026

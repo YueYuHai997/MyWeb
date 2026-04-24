@@ -1,0 +1,63 @@
+- generic [ref=e2]:
+  - complementary [ref=e3]:
+    - link "小林的学习日志" [ref=e4] [cursor=pointer]:
+      - /url: "#/notes"
+    - generic [ref=e5]: 持续学习中
+    - heading "小林" [level=1] [ref=e7]
+    - paragraph [ref=e8]: 自学开发者 · 在探索中成长
+    - paragraph [ref=e9]: 聚焦 AI 工程化和全栈开发，记录每周学习笔记、项目进展与阅读思考。
+    - list [ref=e10]:
+      - listitem [ref=e11]:
+        - link "学习笔记" [ref=e12] [cursor=pointer]:
+          - /url: "#/notes"
+          - generic [ref=e13]: 📝
+          - generic [ref=e14]: 学习笔记
+      - listitem [ref=e15]:
+        - link "项目" [ref=e16] [cursor=pointer]:
+          - /url: "#/projects"
+          - generic [ref=e17]: 🛠️
+          - generic [ref=e18]: 项目
+      - listitem [ref=e19]:
+        - link "在读 / 读过" [ref=e20] [cursor=pointer]:
+          - /url: "#/reading"
+          - generic [ref=e21]: 📚
+          - generic [ref=e22]: 在读 / 读过
+      - listitem [ref=e23]:
+        - link "近况" [ref=e24] [cursor=pointer]:
+          - /url: "#/now"
+          - generic [ref=e25]: 🌱
+          - generic [ref=e26]: 近况
+    - generic [ref=e27]:
+      - link "GitHub" [ref=e28] [cursor=pointer]:
+        - /url: https://github.com
+      - link "邮箱" [ref=e29] [cursor=pointer]:
+        - /url: mailto:13022233853@163.com
+  - main [ref=e30]:
+    - article [ref=e124]:
+      - link "← 返回项目" [ref=e125] [cursor=pointer]:
+        - /url: "#/projects"
+      - generic [ref=e126]:
+        - paragraph [ref=e127]: 🛠️ 项目
+        - heading "🤖 AI 读书笔记助手" [level=1] [ref=e128]
+        - paragraph [ref=e129]: 状态：进行中 · 技术栈：FastAPI + LangChain
+        - paragraph [ref=e130]: 这个项目的目标不是做一个聊天框，而是把读书过程里的整理、追问和复盘串起来。
+        - generic [ref=e131]:
+          - generic [ref=e132]: FastAPI
+          - generic [ref=e133]: RAG
+          - generic [ref=e134]: ChromaDB
+      - generic [ref=e135]:
+        - generic [ref=e136]:
+          - heading "当前功能" [level=2] [ref=e137]
+          - paragraph [ref=e138]: 支持上传 PDF 后自动抽取章节结构、摘要和关键词，并建立按书籍隔离的知识库。
+          - paragraph [ref=e139]: 问答区会优先引用当前书籍内容，避免回答跑偏成泛知识聊天。
+        - generic [ref=e140]:
+          - heading "技术重点" [level=2] [ref=e141]
+          - paragraph [ref=e142]: 后端用 FastAPI 管文件上传和任务调度，LangChain 负责文档处理链路，ChromaDB 先作为轻量向量库使用。
+          - paragraph [ref=e143]: 目前最花时间的是检索质量和引用片段展示，而不是模型调用本身。
+        - generic [ref=e144]:
+          - heading "下一步" [level=2] [ref=e145]
+          - paragraph [ref=e146]: 准备补章节级阅读进度和问题历史，后面再做书与书之间的跨文档对比。
+          - paragraph [ref=e147]: 如果这两块稳定下来，再考虑做分享页。
+    - generic [ref=e148]:
+      - generic [ref=e149]: 小林的学习日志
+      - generic [ref=e150]: © 2026

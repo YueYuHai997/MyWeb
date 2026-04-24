@@ -1,0 +1,96 @@
+<h2>页面风格方向对比</h2>
+<p class="subtitle">目标：保留当前朴素基底，但让导航、页头、卡片更有情绪，不再像纯文档页。</p>
+
+<div class="cards">
+  <div class="card" data-choice="a" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div class="mockup">
+        <div class="mockup-header">A. 轻活泼</div>
+        <div class="mockup-body">
+          <div style="padding:16px; background:#fffdf7;">
+            <div style="font-size:12px; color:#6b7280; margin-bottom:10px;">🟢 持续学习中</div>
+            <div style="font-size:24px; font-weight:700; margin-bottom:10px;">👋 小林的学习日志</div>
+            <div style="display:grid; gap:8px; margin-bottom:14px;">
+              <div style="padding:8px 10px; background:#f3f4f6; border-radius:8px;">📝 学习笔记</div>
+              <div style="padding:8px 10px; background:#f3f4f6; border-radius:8px;">🛠️ 项目</div>
+              <div style="padding:8px 10px; background:#f3f4f6; border-radius:8px;">📚 在读 / 读过</div>
+            </div>
+            <div style="padding:14px; border:1px solid #e5e7eb; border-radius:12px;">
+              <div style="font-size:22px; font-weight:700;">📌 学习笔记</div>
+              <div style="font-size:12px; color:#6b7280; margin:6px 0 12px;">最近更新 8 篇</div>
+              <div style="padding:10px 0; border-top:1px solid #ececec;">RAG 检索质量为什么不稳定</div>
+              <div style="padding:10px 0; border-top:1px solid #ececec;">React Server Components 迁移实验</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>轻活泼</h3>
+      <p>导航和标题用少量 emoji 点题，卡片仍然克制。安全，不容易翻车，但冲击力一般。</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="b" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div class="mockup">
+        <div class="mockup-header">B. 推荐：图标 + emoji 混合</div>
+        <div class="mockup-body">
+          <div style="padding:16px; background:linear-gradient(180deg,#fffaf0 0%,#ffffff 100%);">
+            <div style="font-size:12px; color:#166534; margin-bottom:10px;">✨ 持续学习中</div>
+            <div style="font-size:24px; font-weight:700; margin-bottom:10px;">小林的学习日志</div>
+            <div style="display:grid; gap:8px; margin-bottom:14px;">
+              <div style="padding:8px 10px; background:#fff1cc; border-radius:10px;">📒 学习笔记</div>
+              <div style="padding:8px 10px; background:#e8f0ff; border-radius:10px;">🚀 项目</div>
+              <div style="padding:8px 10px; background:#edf7ed; border-radius:10px;">📚 在读 / 读过</div>
+            </div>
+            <div style="padding:14px; border:1px solid #f1e3c5; border-radius:14px; background:#fffefa;">
+              <div style="display:flex; justify-content:space-between; gap:12px; align-items:center;">
+                <div style="font-size:22px; font-weight:700;">📌 学习笔记</div>
+                <div style="font-size:12px; color:#92400e;">8 篇更新</div>
+              </div>
+              <div style="margin-top:12px; display:grid; gap:10px;">
+                <div style="padding:10px 12px; border-radius:10px; background:#fff7e8;">🧠 RAG 检索质量为什么不稳定</div>
+                <div style="padding:10px 12px; border-radius:10px; background:#f3f7ff;">⚛️ React Server Components 迁移实验</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>推荐：图标 + emoji 混合</h3>
+      <p>页头用 emoji 建气氛，内容项用更统一的图标语言。既活泼，又不会像儿童博客。</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="c" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div class="mockup">
+        <div class="mockup-header">C. 高饱和情绪化</div>
+        <div class="mockup-body">
+          <div style="padding:16px; background:linear-gradient(135deg,#fff7ed 0%,#fef3c7 100%);">
+            <div style="font-size:12px; color:#9a3412; margin-bottom:10px;">🔥 持续学习中</div>
+            <div style="font-size:24px; font-weight:700; margin-bottom:10px;">🌟 小林的学习日志</div>
+            <div style="display:grid; gap:8px; margin-bottom:14px;">
+              <div style="padding:8px 10px; background:#fde68a; border-radius:999px;">📝 学习笔记 ✨</div>
+              <div style="padding:8px 10px; background:#bfdbfe; border-radius:999px;">🚀 项目 💥</div>
+              <div style="padding:8px 10px; background:#bbf7d0; border-radius:999px;">📚 在读 / 读过 🌈</div>
+            </div>
+            <div style="padding:14px; border:2px dashed #fb923c; border-radius:16px; background:#ffffffcc;">
+              <div style="font-size:22px; font-weight:700;">🎉 学习笔记</div>
+              <div style="font-size:12px; color:#9a3412; margin:6px 0 12px;">本周超有收获</div>
+              <div style="padding:10px 12px; border-radius:12px; background:#fff7ed;">🧠 RAG 检索质量为什么不稳定</div>
+              <div style="height:8px;"></div>
+              <div style="padding:10px 12px; border-radius:12px; background:#eff6ff;">⚡ React Server Components 迁移实验</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>高饱和情绪化</h3>
+      <p>存在感最强，但也最容易显得吵。短期新鲜，长期未必耐看。</p>
+    </div>
+  </div>
+</div>

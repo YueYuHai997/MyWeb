@@ -1,0 +1,71 @@
+- generic [ref=e2]:
+  - complementary [ref=e3]:
+    - link "小林的学习日志" [ref=e4] [cursor=pointer]:
+      - /url: "#/notes"
+    - generic [ref=e5]: 持续学习中
+    - heading "小林" [level=1] [ref=e7]
+    - paragraph [ref=e8]: 自学开发者 · 在探索中成长
+    - paragraph [ref=e9]: 聚焦 AI 工程化和全栈开发，记录每周学习笔记、项目进展与阅读思考。
+    - list [ref=e10]:
+      - listitem [ref=e11]:
+        - link "学习笔记" [ref=e12] [cursor=pointer]:
+          - /url: "#/notes"
+          - generic [ref=e13]: 📝
+          - generic [ref=e14]: 学习笔记
+      - listitem [ref=e15]:
+        - link "项目" [ref=e16] [cursor=pointer]:
+          - /url: "#/projects"
+          - generic [ref=e17]: 🛠️
+          - generic [ref=e18]: 项目
+      - listitem [ref=e19]:
+        - link "在读 / 读过" [ref=e20] [cursor=pointer]:
+          - /url: "#/reading"
+          - generic [ref=e21]: 📚
+          - generic [ref=e22]: 在读 / 读过
+      - listitem [ref=e23]:
+        - link "近况" [ref=e24] [cursor=pointer]:
+          - /url: "#/now"
+          - generic [ref=e25]: 🌱
+          - generic [ref=e26]: 近况
+    - generic [ref=e27]:
+      - link "GitHub" [ref=e28] [cursor=pointer]:
+        - /url: https://github.com
+      - link "邮箱" [ref=e29] [cursor=pointer]:
+        - /url: mailto:13022233853@163.com
+  - main [ref=e30]:
+    - generic [ref=e91]:
+      - generic [ref=e92]:
+        - heading "📌 学习笔记" [level=1] [ref=e93]
+        - generic [ref=e94]: 最近更新 8 篇
+      - list [ref=e95]:
+        - listitem [ref=e96]:
+          - link "🧠 RAG 检索质量为什么不稳定 2026-04-20 · AI 工程 复盘 HyDE + 混合检索在真实数据集上的调参策略，重点记录 chunk 切分与 query 改写的收益。 RAG LangChain 调优" [ref=e97] [cursor=pointer]:
+            - /url: "#/notes/rag-search-quality"
+            - heading "🧠 RAG 检索质量为什么不稳定" [level=2] [ref=e98]
+            - paragraph [ref=e99]: 2026-04-20 · AI 工程
+            - paragraph [ref=e100]: 复盘 HyDE + 混合检索在真实数据集上的调参策略，重点记录 chunk 切分与 query 改写的收益。
+            - generic [ref=e101]:
+              - generic [ref=e102]: RAG
+              - generic [ref=e103]: LangChain
+              - generic [ref=e104]: 调优
+        - listitem [ref=e105]:
+          - link "⚛️ React Server Components 迁移实验 2026-04-15 · 前端性能 记录从客户端渲染迁移到 RSC 的过程，比较 LCP 与首屏可交互时间变化。 React Next.js" [ref=e106] [cursor=pointer]:
+            - /url: "#/notes/react-server-components-migration"
+            - heading "⚛️ React Server Components 迁移实验" [level=2] [ref=e107]
+            - paragraph [ref=e108]: 2026-04-15 · 前端性能
+            - paragraph [ref=e109]: 记录从客户端渲染迁移到 RSC 的过程，比较 LCP 与首屏可交互时间变化。
+            - generic [ref=e110]:
+              - generic [ref=e111]: React
+              - generic [ref=e112]: Next.js
+        - listitem [ref=e113]:
+          - link "🔧 TypeScript 类型体操实用模式 2026-04-03 · 语言基础 整理 5 个高频类型推导模式，减少复杂泛型带来的维护成本。 TypeScript 工程化" [ref=e114] [cursor=pointer]:
+            - /url: "#/notes/typescript-type-patterns"
+            - heading "🔧 TypeScript 类型体操实用模式" [level=2] [ref=e115]
+            - paragraph [ref=e116]: 2026-04-03 · 语言基础
+            - paragraph [ref=e117]: 整理 5 个高频类型推导模式，减少复杂泛型带来的维护成本。
+            - generic [ref=e118]:
+              - generic [ref=e119]: TypeScript
+              - generic [ref=e120]: 工程化
+    - generic [ref=e121]:
+      - generic [ref=e122]: 小林的学习日志
+      - generic [ref=e123]: © 2026

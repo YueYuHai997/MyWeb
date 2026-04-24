@@ -1,0 +1,12 @@
+{
+  "scripts": {
+    "dev": "vite",
+    "test": "node --test",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "shadcn": "^4.4.0",
+    "vite": "^6.3.5"
+  }
+}

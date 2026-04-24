@@ -1,0 +1,70 @@
+- generic [ref=e2]:
+  - complementary [ref=e3]:
+    - link "小林的学习日志" [ref=e4] [cursor=pointer]:
+      - /url: "#/home"
+    - generic [ref=e5]: 持续学习中
+    - heading "小林" [level=1] [ref=e7]
+    - paragraph [ref=e8]: 自学开发者 · 在探索中成长
+    - paragraph [ref=e9]: 聚焦 AI 工程化和全栈开发，记录每周学习笔记、项目进展与阅读思考。
+    - list [ref=e10]:
+      - listitem [ref=e11]:
+        - link "首页" [ref=e12] [cursor=pointer]:
+          - /url: "#/home"
+          - generic [ref=e13]: 🏠
+          - generic [ref=e14]: 首页
+      - listitem [ref=e15]:
+        - link "学习笔记" [ref=e16] [cursor=pointer]:
+          - /url: "#/notes"
+          - generic [ref=e17]: 📝
+          - generic [ref=e18]: 学习笔记
+      - listitem [ref=e19]:
+        - link "项目" [active] [ref=e20] [cursor=pointer]:
+          - /url: "#/projects"
+          - generic [ref=e21]: 🛠️
+          - generic [ref=e22]: 项目
+      - listitem [ref=e23]:
+        - link "在读 / 读过" [ref=e24] [cursor=pointer]:
+          - /url: "#/reading"
+          - generic [ref=e25]: 📚
+          - generic [ref=e26]: 在读 / 读过
+      - listitem [ref=e27]:
+        - link "近况" [ref=e28] [cursor=pointer]:
+          - /url: "#/now"
+          - generic [ref=e29]: 🌱
+          - generic [ref=e30]: 近况
+    - generic [ref=e31]:
+      - link "GitHub" [ref=e32] [cursor=pointer]:
+        - /url: https://github.com
+      - link "邮箱" [ref=e33] [cursor=pointer]:
+        - /url: mailto:13022233853@163.com
+  - main [ref=e34]:
+    - generic [ref=e95]:
+      - generic [ref=e96]:
+        - heading "🚀 项目" [level=1] [ref=e97]
+        - generic [ref=e98]: 当前进行中 2 个
+      - list [ref=e99]:
+        - listitem [ref=e100]:
+          - heading "🤖 AI 读书笔记助手" [level=2] [ref=e101]
+          - paragraph [ref=e102]: 状态：进行中 · 技术栈：FastAPI + LangChain
+          - paragraph [ref=e103]: 支持上传 PDF 自动提取章节要点，并在右侧展示基于知识库的问答结果。
+          - generic [ref=e104]:
+            - generic [ref=e105]: FastAPI
+            - generic [ref=e106]: RAG
+            - generic [ref=e107]: ChromaDB
+        - listitem [ref=e108]:
+          - heading "📊 学习进度追踪器" [level=2] [ref=e109]
+          - paragraph [ref=e110]: 状态：已上线 · 技术栈：React + Recharts
+          - paragraph [ref=e111]: 可视化统计每日学习时长与主题分布，自动生成周报并导出。
+          - generic [ref=e112]:
+            - generic [ref=e113]: React
+            - generic [ref=e114]: 数据可视化
+        - listitem [ref=e115]:
+          - heading "⌨️ 命令行任务系统" [level=2] [ref=e116]
+          - paragraph [ref=e117]: 状态：已完成 · 技术栈：Python + Click
+          - paragraph [ref=e118]: 实现优先级、标签和提醒功能，支持在 Windows 终端快速管理待办。
+          - generic [ref=e119]:
+            - generic [ref=e120]: Python
+            - generic [ref=e121]: CLI
+    - generic [ref=e122]:
+      - generic [ref=e123]: 小林的学习日志
+      - generic [ref=e124]: © 2026

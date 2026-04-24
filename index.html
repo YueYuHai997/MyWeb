@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>小林的学习日志</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Lora:wght@500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/src/styles/site.css" />
+  </head>
+  <body>
+    <div class="shell">
+      <aside class="sidebar">
+        <a class="sidebar-logo" href="#/notes">小林的学习日志</a>
+        <div class="status"><span class="status-dot"></span>持续学习中</div>
+        <h1 class="s-name">小林</h1>
+        <p class="s-sub">自学开发者 · 在探索中成长</p>
+        <p class="s-bio">
+          聚焦 AI 工程化和全栈开发，记录每周学习笔记、项目进展与阅读思考。
+        </p>
+        <ul class="s-nav">
+          <li>
+            <a href="#/notes" data-route="notes">
+              <span class="nav-emoji" aria-hidden="true">📝</span>
+              <span>学习笔记</span>
+            </a>
+          </li>
+          <li>
+            <a href="#/projects" data-route="projects">
+              <span class="nav-emoji" aria-hidden="true">🛠️</span>
+              <span>项目</span>
+            </a>
+          </li>
+          <li>
+            <a href="#/reading" data-route="reading">
+              <span class="nav-emoji" aria-hidden="true">📚</span>
+              <span>在读 / 读过</span>
+            </a>
+          </li>
+          <li>
+            <a href="#/now" data-route="now">
+              <span class="nav-emoji" aria-hidden="true">🌱</span>
+              <span>近况</span>
+            </a>
+          </li>
+        </ul>
+        <div class="s-links">
+          <a class="pill" href="https://github.com" target="_blank" rel="noreferrer">GitHub</a>
+          <a class="pill" href="mailto:13022233853@163.com">邮箱</a>
+        </div>
+      </aside>
+
+      <main class="content" id="app">
+        <footer class="content-footer">
+          <span>小林的学习日志</span>
+          <span>© <span data-year></span></span>
+        </footer>
+      </main>
+    </div>
+
+    <script type="module" src="/src/scripts/site.js"></script>
+  </body>
+</html>

@@ -1,0 +1,60 @@
+- generic [ref=e2]:
+  - complementary [ref=e3]:
+    - link "小林的学习日志" [ref=e4] [cursor=pointer]:
+      - /url: "#/home"
+    - generic [ref=e5]: 持续学习中
+    - heading "小林" [level=1] [ref=e7]
+    - paragraph [ref=e8]: 自学开发者 · 在探索中成长
+    - paragraph [ref=e9]: 聚焦 AI 工程化和全栈开发，记录每周学习笔记、项目进展与阅读思考。
+    - list [ref=e10]:
+      - listitem [ref=e11]:
+        - link "首页" [ref=e12] [cursor=pointer]:
+          - /url: "#/home"
+          - generic [ref=e13]: 🏠
+          - generic [ref=e14]: 首页
+      - listitem [ref=e15]:
+        - link "学习笔记" [ref=e16] [cursor=pointer]:
+          - /url: "#/notes"
+          - generic [ref=e17]: 📝
+          - generic [ref=e18]: 学习笔记
+      - listitem [ref=e19]:
+        - link "项目" [ref=e20] [cursor=pointer]:
+          - /url: "#/projects"
+          - generic [ref=e21]: 🛠️
+          - generic [ref=e22]: 项目
+      - listitem [ref=e23]:
+        - link "在读 / 读过" [ref=e24] [cursor=pointer]:
+          - /url: "#/reading"
+          - generic [ref=e25]: 📚
+          - generic [ref=e26]: 在读 / 读过
+      - listitem [ref=e27]:
+        - link "近况" [ref=e28] [cursor=pointer]:
+          - /url: "#/now"
+          - generic [ref=e29]: 🌱
+          - generic [ref=e30]: 近况
+    - generic [ref=e31]:
+      - link "GitHub" [ref=e32] [cursor=pointer]:
+        - /url: https://github.com
+      - link "邮箱" [ref=e33] [cursor=pointer]:
+        - /url: mailto:13022233853@163.com
+  - main [ref=e34]:
+    - generic [ref=e35]:
+      - generic [ref=e36]:
+        - heading "🏠 首页" [level=1] [ref=e37]
+        - generic [ref=e38]: 单页结构已启用
+      - generic [ref=e39]:
+        - article [ref=e40]:
+          - heading "📝 学习笔记" [level=2] [ref=e41]
+          - paragraph [ref=e42]: 每周更新
+          - paragraph [ref=e43]: 按时间记录技术实践、踩坑和经验复盘，尽量把抽象概念讲清楚。
+        - article [ref=e44]:
+          - heading "🛠️ 项目" [level=2] [ref=e45]
+          - paragraph [ref=e46]: 持续迭代
+          - paragraph [ref=e47]: 集中展示在做什么、做到哪一步，以及技术选型背后的取舍。
+        - article [ref=e48]:
+          - heading "📚 阅读与近况" [level=2] [ref=e49]
+          - paragraph [ref=e50]: 输入和状态
+          - paragraph [ref=e51]: 把最近在读的书、当前关注的技术方向和学习节奏收口到一个地方。
+    - generic [ref=e52]:
+      - generic [ref=e53]: 小林的学习日志
+      - generic [ref=e54]: © 2026
