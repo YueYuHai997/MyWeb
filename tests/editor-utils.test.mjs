@@ -7,7 +7,7 @@ import {
   buildMarkdownFile,
   createImageTag,
   createAssetFileName
-} from "../src/scripts/editor-utils.mjs";
+} from "../src/data/editor-utils.js";
 
 test("标题会被转换为稳定 slug", () => {
   assert.equal(slugifyTitle("My First Note"), "my-first-note");

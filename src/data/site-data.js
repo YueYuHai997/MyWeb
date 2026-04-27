@@ -1,4 +1,4 @@
-import { VALID_SECTIONS, buildContentIndex } from "./content-model.mjs";
+import { VALID_SECTIONS, buildContentIndex } from "./content-model.js";
 
 export const SITE_NAME = "YueYuHai 的学习日记";
 export const DEFAULT_SECTION = "notes";
@@ -61,6 +61,16 @@ export function getSectionNavigationItems(contentBySection, section) {
     slug: item.slug,
     title: item.title
   }));
+}
+
+export function getProjectGalleryItems(items) {
+  return (items || [])
+    .filter((item) => item.cover)
+    .map((item) => ({
+      image: item.cover,
+      text: item.title,
+      href: `#/projects/${item.slug}`
+    }));
 }
 
 export function getDefaultHash() {

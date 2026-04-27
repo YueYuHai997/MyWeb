@@ -2,14 +2,14 @@ import { access, mkdir, writeFile } from "node:fs/promises";
 import { constants as fsConstants } from "node:fs";
 import { dirname, extname, resolve } from "node:path";
 
-import { VALID_SECTIONS } from "../src/scripts/content-model.mjs";
+import { VALID_SECTIONS } from "../src/data/content-model.js";
 import {
   buildMarkdownFile,
   createAssetFileName,
   getTodayDate,
   parseTagsInput,
   slugifyTitle
-} from "../src/scripts/editor-utils.mjs";
+} from "../src/data/editor-utils.js";
 
 function normalizeText(value) {
   return typeof value === "string" ? value.trim() : "";
