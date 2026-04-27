@@ -1,13 +1,17 @@
 import {
   SITE_NAME,
   sections,
-  contentBySection,
+  getSectionDescription,
+  getSectionNavigationItems,
   getDefaultHash,
   getRouteState,
   findItemBySlug
 } from "./site-data.mjs";
+import { contentBySection } from "./site-content.mjs";
+import { mountEditorPage, renderEditorPage } from "./editor-page.mjs";
 
 const appNode = document.querySelector("#app");
+const isDev = import.meta.env.DEV;
 let revealObserver = null;
 
 function buildListHash(section) {
@@ -27,10 +31,13 @@ function getNormalizedRouteState() {
   }
 
   const state = getRouteState(rawHash);
-  const normalizedHash =
-    state.type === "detail"
-      ? buildDetailHash(state.section, state.slug)
-      : buildListHash(state.section);
+  let normalizedHash = buildListHash(state.section);
+
+  if (state.type === "detail") {
+    normalizedHash = buildDetailHash(state.section, state.slug);
+  } else if (state.type === "editor") {
+    normalizedHash = "#/editor";
+  }
 
   if (rawHash !== normalizedHash) {
     window.history.replaceState(null, "", normalizedHash);
@@ -60,135 +67,218 @@ function renderTags(tags) {
   `;
 }
 
+function buildMetaText(item) {
+  return [item.date, item.status, item.sub].filter(Boolean).join(" · ");
+}
+
+function renderEmptyState(sectionMeta) {
+  return `
+    <section class="empty-state">
+      <h2>${escapeHtml(sectionMeta.title)}</h2>
+      <p>当前还没有内容，后续直接往对应的 Markdown 目录添加文件即可。</p>
+    </section>
+  `;
+}
+
 function renderPostList(section, items) {
+  if (!items.length) {
+    return renderEmptyState(sections[section]);
+  }
+
   const posts = items
-    .map(
-      (item) => `
+    .map((item) => {
+      const metaText = buildMetaText(item);
+      return `
         <li class="post-item reveal-item">
           <a class="entry-link" href="${escapeHtml(buildDetailHash(section, item.slug))}">
             <h2 class="post-title">${escapeHtml(item.title)}</h2>
-            <p class="post-meta">${escapeHtml(item.meta)}</p>
+            ${metaText ? `<p class="post-meta">${escapeHtml(metaText)}</p>` : ""}
             <p class="post-body">${escapeHtml(item.summary)}</p>
             ${renderTags(item.tags)}
           </a>
         </li>
-      `
-    )
+      `;
+    })
     .join("");
 
   return `<ul class="post-list">${posts}</ul>`;
 }
 
-function renderInsetList(section, items) {
-  const cards = items
-    .map(
-      (item) => `
-        <article class="inset-item reveal-item">
-          <a class="entry-link entry-link-inset" href="${escapeHtml(buildDetailHash(section, item.slug))}">
-            <h2 class="inset-title">${escapeHtml(item.title)}</h2>
-            <p class="inset-sub">${escapeHtml(item.sub)}</p>
-            <p class="inset-desc">${escapeHtml(item.summary)}</p>
-          </a>
-        </article>
-      `
-    )
-    .join("");
+function renderContextSection(title, subtitle, itemsHtml) {
+  return `
+    <aside class="context-panel">
+      <div class="context-panel-inner">
+        <p class="context-eyebrow">${escapeHtml(subtitle)}</p>
+        <h2 class="context-title">${escapeHtml(title)}</h2>
+        <div class="context-nav">
+          ${itemsHtml}
+        </div>
+      </div>
+    </aside>
+  `;
+}
 
-  return `<section class="inset">${cards}</section>`;
+function renderSectionContextNav(section) {
+  const items = getSectionNavigationItems(contentBySection, section);
+  const itemsHtml = items.length
+    ? items
+        .map(
+          (item, index) => `
+            <a class="context-link" href="${escapeHtml(buildDetailHash(section, item.slug))}">
+              <span class="context-index">${String(index + 1).padStart(2, "0")}</span>
+              <span class="context-label">${escapeHtml(item.title)}</span>
+            </a>
+          `
+        )
+        .join("")
+    : `<p class="context-empty">当前栏目还没有文章。</p>`;
+
+  return renderContextSection("本栏文章", sections[section].label, itemsHtml);
+}
+
+function renderArticleContextNav(item) {
+  const itemsHtml = item.toc?.length
+    ? item.toc
+        .map(
+          (heading) => `
+            <button
+              type="button"
+              class="context-link context-link-button context-level-${heading.level}"
+              data-heading-id="${escapeHtml(heading.id)}"
+            >
+              <span class="context-label">${escapeHtml(heading.text)}</span>
+            </button>
+          `
+        )
+        .join("")
+    : `<p class="context-empty">这篇文章还没有二级标题目录。</p>`;
+
+  return renderContextSection("文章目录", item.title, itemsHtml);
 }
 
 function renderListPage(section) {
   const sectionMeta = sections[section];
   const items = contentBySection[section] || [];
-  const body =
-    sectionMeta.listLayout === "post-list"
-      ? renderPostList(section, items)
-      : renderInsetList(section, items);
 
   return {
-    title: sectionMeta.title,
     pageTitle: `${sectionMeta.label} - ${SITE_NAME}`,
-    body: `
+    layout: "content",
+    main: `
       <section class="route-panel">
         <header class="section-head">
-          <h1>${escapeHtml(sectionMeta.title)}</h1>
-          <span class="section-desc">${escapeHtml(sectionMeta.description)}</span>
+          <h1>${escapeHtml(`${sectionMeta.icon} ${sectionMeta.title}`)}</h1>
+          <span class="section-desc">${escapeHtml(getSectionDescription(section, contentBySection))}</span>
         </header>
-        ${body}
+        ${renderPostList(section, items)}
       </section>
-    `
+    `,
+    context: renderSectionContextNav(section)
   };
-}
-
-function renderDetailSections(item) {
-  return item.sections
-    .map(
-      (section) => `
-        <section class="detail-section">
-          <h2>${escapeHtml(section.heading)}</h2>
-          ${section.paragraphs
-            .map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`)
-            .join("")}
-        </section>
-      `
-    )
-    .join("");
 }
 
 function renderDetailPage(section, item) {
   const sectionMeta = sections[section];
-  const metaText = item.meta || item.sub || "";
+  const metaText = buildMetaText(item);
 
   return {
-    title: item.detailTitle,
     pageTitle: `${item.detailTitle} - ${SITE_NAME}`,
-    body: `
+    layout: "content",
+    main: `
       <article class="route-panel detail-article">
         <a class="detail-back" href="${escapeHtml(buildListHash(section))}">
-          ← 返回${escapeHtml(sectionMeta.label)}
+          返回${escapeHtml(sectionMeta.label)}
         </a>
         <header class="detail-header">
-          <p class="detail-section-name">${escapeHtml(sectionMeta.navLabel)}</p>
+          <p class="detail-section-name">${escapeHtml(`${sectionMeta.icon} ${sectionMeta.navLabel}`)}</p>
           <h1>${escapeHtml(item.detailTitle)}</h1>
-          <p class="detail-meta">${escapeHtml(metaText)}</p>
-          <p class="detail-lead">${escapeHtml(item.lead)}</p>
+          ${metaText ? `<p class="detail-meta">${escapeHtml(metaText)}</p>` : ""}
+          ${item.lead ? `<p class="detail-lead">${escapeHtml(item.lead)}</p>` : ""}
           ${renderTags(item.tags)}
         </header>
-        <div class="detail-body">
-          ${renderDetailSections(item)}
+        <div class="detail-body markdown-body">
+          ${item.html}
         </div>
       </article>
-    `
+    `,
+    context: renderArticleContextNav(item)
   };
 }
 
-function renderLayout(view, activeSection) {
+function renderLayout(view, activeRoute) {
   if (!appNode) {
     return;
   }
 
+  const body =
+    view.layout === "editor"
+      ? `${view.main}`
+      : `
+        <div class="content-shell">
+          <div class="content-main">
+            ${view.main}
+          </div>
+          ${view.context}
+        </div>
+      `;
+
   appNode.innerHTML = `
-    ${view.body}
+    ${body}
     <footer class="content-footer">
-      <span>${SITE_NAME}</span>
-      <span>© <span data-year></span></span>
+      <span>${escapeHtml(SITE_NAME)}</span>
+      <span>&copy; <span data-year></span></span>
     </footer>
   `;
 
   document.title = view.pageTitle;
-  updateActiveNav(activeSection);
+  updateActiveNav(activeRoute);
   updateYear();
   initRevealAnimation();
+  bindContextHeadingNavigation();
+
+  if (view.layout === "editor") {
+    mountEditorPage({ sections });
+  }
 }
 
-function updateActiveNav(section) {
+function updateActiveNav(routeKey) {
   document.querySelectorAll("[data-route]").forEach((node) => {
-    const isActive = node.getAttribute("data-route") === section;
+    const isActive = node.getAttribute("data-route") === routeKey;
     if (isActive) {
       node.setAttribute("aria-current", "page");
     } else {
       node.removeAttribute("aria-current");
     }
+  });
+}
+
+function toggleDevOnlyElements() {
+  if (isDev) {
+    return;
+  }
+
+  document.querySelectorAll("[data-dev-only]").forEach((node) => {
+    node.remove();
+  });
+}
+
+function bindContextHeadingNavigation() {
+  document.querySelectorAll("[data-heading-id]").forEach((node) => {
+    node.addEventListener("click", () => {
+      const headingId = node.getAttribute("data-heading-id");
+      if (!headingId) {
+        return;
+      }
+
+      const target = document.getElementById(headingId);
+      if (!target) {
+        return;
+      }
+
+      target.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+    });
   });
 }
 
@@ -231,8 +321,13 @@ function updateYear() {
 function handleRouteChange() {
   const state = getNormalizedRouteState();
 
+  if (state.type === "editor") {
+    renderLayout(renderEditorPage(sections, isDev), "editor");
+    return;
+  }
+
   if (state.type === "detail") {
-    const item = findItemBySlug(state.section, state.slug);
+    const item = findItemBySlug(contentBySection, state.section, state.slug);
     if (!item) {
       const fallbackHash = buildListHash(state.section);
       window.history.replaceState(null, "", fallbackHash);
@@ -247,6 +342,6 @@ function handleRouteChange() {
   renderLayout(renderListPage(state.section), state.section);
 }
 
+toggleDevOnlyElements();
 window.addEventListener("hashchange", handleRouteChange);
-
 handleRouteChange();

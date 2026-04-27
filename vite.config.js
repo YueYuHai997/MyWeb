@@ -1,7 +1,10 @@
 import { defineConfig } from "vite";
 import { resolve } from "node:path";
 
+import { createDevContentApiPlugin } from "./tools/dev-content-api.mjs";
+
 export default defineConfig({
+  plugins: [createDevContentApiPlugin(__dirname)],
   build: {
     rollupOptions: {
       input: {

@@ -1,19 +1,42 @@
 import test from "node:test";
 import assert from "node:assert/strict";
+import { readFileSync } from "node:fs";
 
 import {
+  parseMarkdownDocument,
+  buildContentIndex
+} from "../src/scripts/content-model.mjs";
+import {
+  SITE_NAME,
   DEFAULT_SECTION,
   getDefaultHash,
   getRouteState,
-  findItemBySlug
+  createContentBySection,
+  getSectionNavigationItems,
+  sections
 } from "../src/scripts/site-data.mjs";
 
 test("默认路由跳到 notes 列表页", () => {
   assert.equal(DEFAULT_SECTION, "notes");
   assert.equal(getDefaultHash(), "#/notes");
+  assert.equal(SITE_NAME, "YueYuHai 的学习日记");
 });
 
-test("可以解析学习笔记详情页路由", () => {
+test("阅读和近况使用与笔记一致的列表布局", () => {
+  assert.equal(sections.reading.listLayout, "post-list");
+  assert.equal(sections.now.listLayout, "post-list");
+  assert.equal(sections.reading.label, "分享");
+});
+
+test("可以解析编辑器路由", () => {
+  assert.deepEqual(getRouteState("#/editor"), {
+    type: "editor",
+    section: null,
+    slug: null
+  });
+});
+
+test("可以解析文章详情路由", () => {
   assert.deepEqual(getRouteState("#/notes/rag-search-quality"), {
     type: "detail",
     section: "notes",
@@ -29,10 +52,163 @@ test("非法路由会回退到默认列表页", () => {
   });
 });
 
-test("可以按 section 和 slug 找到详情条目", () => {
-  const item = findItemBySlug("projects", "ai-book-notes-assistant");
+test("Markdown 解析会生成正文目录和标题锚点", () => {
+  const source = `---
+title: 示例文章
+date: 2026-04-27
+summary: 这是一段摘要
+tags:
+  - AI
+draft: false
+---
 
-  assert.ok(item);
-  assert.equal(item.title, "🤖 AI 读书笔记助手");
-  assert.equal(item.detailTitle, "🤖 AI 读书笔记助手");
+## 第一节
+
+正文内容。
+
+### 子节标题
+
+更多内容。
+`;
+
+  const item = parseMarkdownDocument("notes", "example-post", source, "content/notes/example-post.md");
+
+  assert.equal(item.title, "示例文章");
+  assert.equal(item.summary, "这是一段摘要");
+  assert.deepEqual(item.tags, ["AI"]);
+  assert.deepEqual(item.toc, [
+    { id: "第一节", text: "第一节", level: 2 },
+    { id: "子节标题", text: "子节标题", level: 3 }
+  ]);
+  assert.match(item.html, /<h2 id="第一节">第一节<\/h2>/);
+  assert.match(item.html, /<h3 id="子节标题">子节标题<\/h3>/);
+});
+
+test("Markdown 支持 GFM 扩展语法和代码高亮", () => {
+  const source = `---
+title: Markdown 能力
+date: 2026-04-27
+---
+
+- [x] 已完成
+- [ ] 待处理
+
+~~删除线~~
+
+| 列1 | 列2 |
+| --- | --- |
+| A | B |
+
+\`\`\`js
+const answer = 42;
+\`\`\`
+`;
+
+  const item = parseMarkdownDocument("notes", "markdown-feature", source, "content/notes/markdown-feature.md");
+
+  assert.match(item.html, /<input checked="" disabled="" type="checkbox">/);
+  assert.match(item.html, /<del>删除线<\/del>/);
+  assert.match(item.html, /<table>/);
+  assert.match(item.html, /class="hljs language-js"/);
+  assert.match(item.html, /class="hljs-keyword"|class="hljs-variable"/);
+});
+
+test("Markdown 内容会按 section 聚合并按规则排序", () => {
+  const content = buildContentIndex({
+    "../../content/notes/second.md": `---
+title: 第二篇
+date: 2026-04-20
+---
+
+正文`,
+    "../../content/notes/first.md": `---
+title: 第一篇
+order: 1
+date: 2026-04-01
+---
+
+正文`,
+    "../../content/notes/draft.md": `---
+title: 草稿
+draft: true
+---
+
+正文`
+  });
+
+  assert.equal(content.notes.length, 2);
+  assert.equal(content.notes[0].slug, "first");
+  assert.equal(content.notes[1].slug, "second");
+});
+
+test("site-data 会基于 glob 结果生成内容索引", () => {
+  const content = createContentBySection({
+    "../../content/notes/example.md": `---
+title: Glob 文章
+date: 2026-04-21
+---
+
+正文`
+  });
+
+  assert.equal(content.notes.length, 1);
+  assert.equal(content.notes[0].slug, "example");
+});
+
+test("大写文件名会被归一化为小写 slug", () => {
+  const content = createContentBySection({
+    "../../content/notes/Cs.md": `---
+title: Cs
+date: 2026-04-21
+---
+
+正文`
+  });
+
+  assert.equal(content.notes.length, 1);
+  assert.equal(content.notes[0].slug, "cs");
+});
+
+test("列表页右侧导航数据来自当前 section 的文章列表", () => {
+  const content = createContentBySection({
+    "../../content/notes/alpha.md": `---
+title: Alpha
+date: 2026-04-21
+---
+
+正文`,
+    "../../content/notes/beta.md": `---
+title: Beta
+date: 2026-04-20
+---
+
+正文`,
+    "../../content/projects/proj.md": `---
+title: Project
+date: 2026-04-19
+---
+
+正文`
+  });
+
+  assert.deepEqual(getSectionNavigationItems(content, "notes"), [
+    { slug: "alpha", title: "Alpha" },
+    { slug: "beta", title: "Beta" }
+  ]);
+});
+
+test("真实 Markdown 内容可以被聚合到对应 section", () => {
+  const content = createContentBySection({
+    "../../content/projects/ai-book-notes-assistant.md": readFileSync(
+      new URL("../content/projects/ai-book-notes-assistant.md", import.meta.url),
+      "utf8"
+    ),
+    "../../content/notes/rag-search-quality.md": readFileSync(
+      new URL("../content/notes/rag-search-quality.md", import.meta.url),
+      "utf8"
+    )
+  });
+
+  assert.equal(content.projects[0].slug, "ai-book-notes-assistant");
+  assert.equal(content.notes[0].slug, "rag-search-quality");
 });
