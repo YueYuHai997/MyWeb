@@ -1,20 +1,18 @@
 import { defineConfig } from "vite";
-import { resolve } from "node:path";
+import { dirname } from "node:path";
+import { fileURLToPath } from "node:url";
+import react from "@vitejs/plugin-react";
 
 import { createDevContentApiPlugin } from "./tools/dev-content-api.mjs";
 
-export default defineConfig({
-  plugins: [createDevContentApiPlugin(__dirname)],
-  build: {
-    rollupOptions: {
-      input: {
-        index: resolve(__dirname, "index.html"),
-        portfolio: resolve(__dirname, "portfolio.html"),
-        notes: resolve(__dirname, "notes.html"),
-        projects: resolve(__dirname, "projects.html"),
-        reading: resolve(__dirname, "reading.html"),
-        now: resolve(__dirname, "now.html")
-      }
-    }
-  }
-});
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const REPO_BASE = "/MyWeb/";
+
+export default defineConfig(({ command }) => ({
+  base: command === "build" ? REPO_BASE : "/",
+  esbuild: {
+    jsx: "automatic",
+    jsxImportSource: "react"
+  },
+  plugins: [react({ jsxRuntime: "automatic" }), createDevContentApiPlugin(__dirname)]
+}));
