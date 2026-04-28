@@ -12,3 +12,57 @@
 [2m11:15:17[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/content/ProjectsCircularGallery.jsx[22m
 [2m11:15:24[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/content/ProjectsCircularGallery.jsx[22m
 [2m11:15:33[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/effects/CircularGallery.jsx[22m
+[2m12:19:15[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/App.jsx[22m
+[2m12:19:15[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2mindex.html[22m
+[2m12:19:15[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/App.jsx[22m
+[2m12:19:15[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/App.jsx[22m
+[2m12:19:15[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/styles/site.css, /src/styles/site.css?direct[22m
+[2m12:19:15[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2mnotes.html[22m
+[2m12:19:15[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2mnow.html[22m
+[2m12:19:15[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2mportfolio.html[22m
+[2m12:19:15[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2mprojects.html[22m
+[2m12:19:15[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2mreading.html[22m
+[2m12:19:15[22m [36m[1m[vite][22m[39m [32msrc/data/content-model.js changed, restarting server...[39m
+[2m12:19:15[22m [36m[1m[vite][22m[39m [32msrc/data/editor-utils.js changed, restarting server...[39m
+[2m12:19:15[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/App.jsx[22m
+[2m12:19:15[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2msrc/app/useHashRoute.js[22m
+[2m12:19:15[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/content/ArticleToc.jsx[22m
+[2m12:19:15[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/content/PostList.jsx[22m
+[2m12:19:15[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/content/PostListItem.jsx[22m
+[2m12:19:15[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2msrc/components/content/projects-gallery-config.js[22m
+[2m12:19:15[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/content/ProjectsCircularGallery.jsx[22m
+[2m12:19:15[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/content/RevealItem.jsx[22m
+[2m12:19:15[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2msrc/components/effects/circular-gallery-layout.js[22m
+[2m12:19:15[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/effects/CircularGallery.css[22m
+[2m12:19:15[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/effects/CircularGallery.jsx[22m
+[2m12:19:15[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/effects/ClickSpark.jsx[22m
+[2m12:19:15[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/layout/ContentFooter.jsx[22m
+[2m12:19:15[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/layout/ContextPanel.jsx[22m
+[2m12:19:15[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/layout/ShellLayout.jsx[22m
+[2m12:19:15[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/layout/Sidebar.jsx[22m
+[2m12:19:15[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/pages/DetailPage.jsx[22m
+[2m12:19:15[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/pages/EditorPage.jsx[22m
+[2m12:19:15[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/pages/ListPage.jsx[22m
+[2m12:19:15[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2msrc/main.jsx[22m
+[2m12:19:15[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2msrc/data/site-content.js[22m
+[2m12:19:15[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2msrc/data/site-data.js[22m
+[2m12:19:15[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m Re-optimizing dependencies because vite config has changed
+[2m12:19:15[22m [36m[1m[vite][22m[39m server restarted.
+[2m12:23:23[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2mnotes.html[22m
+[2m12:23:23[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2mnow.html[22m
+[2m12:23:23[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2mportfolio.html[22m
+[2m12:23:23[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2msrc/scripts/content-model.mjs[22m
+[2m12:23:23[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2msrc/scripts/editor-page.mjs[22m
+[2m12:23:23[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2msrc/scripts/editor-utils.mjs[22m
+[2m12:23:23[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2msrc/scripts/site-content.mjs[22m
+[2m12:23:23[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2msrc/scripts/site-data.mjs[22m
+[2m12:23:23[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2msrc/scripts/site.js[22m
+[2m12:23:23[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2mprojects.html[22m
+[2m12:23:23[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2mreading.html[22m
+[2m12:23:23[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2mcontent/projects/cli-task-system.md[22m
+[2m12:23:23[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2mcontent/projects/study-progress-tracker.md[22m
+[2m12:23:23[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2mcontent/projects/ai-book-notes-assistant.md[22m
+[2m12:23:23[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2mindex.html[22m
+[2m12:23:23[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/styles/site.css?direct[22m
+[2m12:23:30[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [31merror while updating dependencies:
+Error: EPERM: operation not permitted, rename 'D:\MyWeb\node_modules\.vite\deps_temp_0411a3dc' -> 'D:\MyWeb\node_modules\.vite\deps'[39m
