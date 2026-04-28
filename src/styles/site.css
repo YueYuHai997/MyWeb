@@ -242,7 +242,7 @@ button {
 
 .projects-gallery-stage {
   position: relative;
-  height: 620px;
+  height: 560px;
   overflow: hidden;
 }
 
@@ -852,6 +852,6 @@ button {
   }
 
   .projects-gallery-stage {
-    height: 520px;
+    height: 480px;
   }
 }

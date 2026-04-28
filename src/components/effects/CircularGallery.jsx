@@ -2,6 +2,7 @@ import { Camera, Mesh, Plane, Program, Renderer, Texture, Transform } from "ogl"
 import { useEffect, useRef } from "react";
 
 import "./CircularGallery.css";
+import { CIRCULAR_GALLERY_LAYOUT, getFontPixelSize, getMediaScale, getTitleOffsetY } from "./circular-gallery-layout.js";
 
 function debounce(func, wait) {
   let timeout;
@@ -25,14 +26,14 @@ function autoBind(instance) {
   });
 }
 
-function createTextTexture(gl, text, font = "bold 30px monospace", color = "#ffffff") {
+function createTextTexture(gl, text, font = CIRCULAR_GALLERY_LAYOUT.titleFont, color = "#ffffff") {
   const canvas = document.createElement("canvas");
   const context = canvas.getContext("2d");
 
   context.font = font;
   const metrics = context.measureText(text);
   const textWidth = Math.ceil(metrics.width);
-  const textHeight = Math.ceil(Number.parseInt(font, 10) * 1.2);
+  const textHeight = Math.ceil(getFontPixelSize(font) * 1.2);
 
   canvas.width = textWidth + 20;
   canvas.height = textHeight + 20;
@@ -51,7 +52,7 @@ function createTextTexture(gl, text, font = "bold 30px monospace", color = "#fff
 }
 
 class Title {
-  constructor({ gl, plane, text, textColor = "#ffffff", font = "bold 30px monospace" }) {
+  constructor({ gl, plane, text, textColor = "#ffffff", font = CIRCULAR_GALLERY_LAYOUT.titleFont }) {
     autoBind(this);
     this.gl = gl;
     this.plane = plane;
@@ -94,11 +95,11 @@ class Title {
 
     this.mesh = new Mesh(this.gl, { geometry, program });
     const aspect = width / height;
-    const textHeight = this.plane.scale.y * 0.15;
+    const textHeight = this.plane.scale.y * CIRCULAR_GALLERY_LAYOUT.titleScaleRatio;
     const textWidth = textHeight * aspect;
 
     this.mesh.scale.set(textWidth, textHeight, 1);
-    this.mesh.position.y = -this.plane.scale.y * 0.5 - textHeight * 0.5 - 0.05;
+    this.mesh.position.y = getTitleOffsetY(this.plane.scale.y, textHeight);
     this.mesh.setParent(this.plane);
   }
 }
@@ -305,9 +306,11 @@ class Media {
       this.viewport = viewport;
     }
 
-    this.scale = this.screen.height / 1500;
-    this.plane.scale.y = (this.viewport.height * (900 * this.scale)) / this.screen.height;
-    this.plane.scale.x = (this.viewport.width * (700 * this.scale)) / this.screen.width;
+    this.scale = getMediaScale(this.screen.height);
+    this.plane.scale.y =
+      (this.viewport.height * (CIRCULAR_GALLERY_LAYOUT.mediaBaseHeight * this.scale)) / this.screen.height;
+    this.plane.scale.x =
+      (this.viewport.width * (CIRCULAR_GALLERY_LAYOUT.mediaBaseWidth * this.scale)) / this.screen.width;
     this.plane.program.uniforms.uPlaneSizes.value = [this.plane.scale.x, this.plane.scale.y];
     this.padding = 2;
     this.width = this.plane.scale.x + this.padding;
@@ -324,7 +327,7 @@ class GalleryApp {
       bend,
       textColor = "#ffffff",
       borderRadius = 0,
-      font = "bold 30px monospace",
+      font = CIRCULAR_GALLERY_LAYOUT.titleFont,
       scrollSpeed = 2,
       scrollEase = 0.05
     } = {}
@@ -557,7 +560,7 @@ export default function CircularGallery({
   bend = 3,
   textColor = "#ffffff",
   borderRadius = 0.05,
-  font = "bold 30px monospace",
+  font = CIRCULAR_GALLERY_LAYOUT.titleFont,
   scrollSpeed = 2,
   scrollEase = 0.05
 }) {

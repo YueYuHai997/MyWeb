@@ -1,4 +1,5 @@
 import CircularGallery from "../effects/CircularGallery.jsx";
+import { PROJECTS_GALLERY_SETTINGS } from "./projects-gallery-config.js";
 
 export default function ProjectsCircularGallery({ items }) {
   return (
@@ -6,11 +7,12 @@ export default function ProjectsCircularGallery({ items }) {
       <div className="projects-gallery-stage">
         <CircularGallery
           items={items}
-          bend={1}
-          textColor="#ffffff"
-          borderRadius={0.05}
-          scrollSpeed={2}
-          scrollEase={0.05}
+          bend={PROJECTS_GALLERY_SETTINGS.bend}
+          textColor={PROJECTS_GALLERY_SETTINGS.textColor}
+          borderRadius={PROJECTS_GALLERY_SETTINGS.borderRadius}
+          font={PROJECTS_GALLERY_SETTINGS.font}
+          scrollSpeed={PROJECTS_GALLERY_SETTINGS.scrollSpeed}
+          scrollEase={PROJECTS_GALLERY_SETTINGS.scrollEase}
         />
       </div>
     </div>
