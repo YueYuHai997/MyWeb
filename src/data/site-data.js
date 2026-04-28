@@ -2,6 +2,28 @@ import { VALID_SECTIONS, buildContentIndex } from "./content-model.js";
 
 export const SITE_NAME = "YueYuHai 的学习日记";
 export const DEFAULT_SECTION = "notes";
+const APP_BASE_URL = import.meta.env?.BASE_URL || "/";
+
+function resolvePublicAssetUrl(path, basePath = APP_BASE_URL) {
+  const normalizedPath = typeof path === "string" ? path.trim() : "";
+
+  if (
+    !normalizedPath ||
+    !normalizedPath.startsWith("/") ||
+    normalizedPath.startsWith("//") ||
+    /^[a-z][a-z\d+\-.]*:/i.test(normalizedPath)
+  ) {
+    return normalizedPath;
+  }
+
+  const normalizedBasePath = String(basePath || "/").trim();
+  if (!normalizedBasePath || normalizedBasePath === "/") {
+    return normalizedPath;
+  }
+
+  const basePrefix = normalizedBasePath.endsWith("/") ? normalizedBasePath : `${normalizedBasePath}/`;
+  return `${basePrefix}${normalizedPath.slice(1)}`;
+}
 
 export const sections = {
   notes: {
@@ -63,11 +85,11 @@ export function getSectionNavigationItems(contentBySection, section) {
   }));
 }
 
-export function getProjectGalleryItems(items) {
+export function getProjectGalleryItems(items, basePath = APP_BASE_URL) {
   return (items || [])
     .filter((item) => item.cover)
     .map((item) => ({
-      image: item.cover,
+      image: resolvePublicAssetUrl(item.cover, basePath),
       text: item.title,
       href: `#/projects/${item.slug}`
     }));

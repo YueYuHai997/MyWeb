@@ -247,3 +247,21 @@ cover: /content-assets/projects/demo-cover.png
     }
   ]);
 });
+
+test("getProjectGalleryItems prefixes repo base for root public asset covers", () => {
+  const items = getProjectGalleryItems([
+    {
+      slug: "demo",
+      title: "Demo Project",
+      cover: "/content-assets/projects/demo-cover.png"
+    }
+  ], "/MyWeb/");
+
+  assert.deepEqual(items, [
+    {
+      image: "/MyWeb/content-assets/projects/demo-cover.png",
+      text: "Demo Project",
+      href: "#/projects/demo"
+    }
+  ]);
+});
