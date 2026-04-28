@@ -31,8 +31,8 @@ test("阅读和近况使用与笔记一致的列表布局", () => {
 
 test("可以解析编辑器路由", () => {
   assert.deepEqual(getRouteState("#/editor"), {
-    type: "editor",
-    section: null,
+    type: "list",
+    section: "notes",
     slug: null
   });
 });

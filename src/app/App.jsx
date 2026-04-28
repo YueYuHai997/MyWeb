@@ -3,7 +3,6 @@ import { useEffect } from "react";
 import ShellLayout from "../components/layout/ShellLayout.jsx";
 import ListPage from "../components/pages/ListPage.jsx";
 import DetailPage from "../components/pages/DetailPage.jsx";
-import EditorPage from "../components/pages/EditorPage.jsx";
 import ClickSpark from "../components/effects/ClickSpark.jsx";
 import { SITE_NAME, findItemBySlug, sections } from "../data/site-data.js";
 import { contentBySection } from "../data/site-content.js";
@@ -11,7 +10,6 @@ import { useHashRoute } from "./useHashRoute.js";
 
 export default function App() {
   const route = useHashRoute();
-  const isDev = import.meta.env.DEV;
   const section = route.section ?? "notes";
   const detailItem = route.type === "detail" ? findItemBySlug(contentBySection, route.section, route.slug) : null;
 
@@ -25,10 +23,7 @@ export default function App() {
   let page = null;
   let pageTitle = SITE_NAME;
 
-  if (route.type === "editor") {
-    pageTitle = `创建内容 - ${SITE_NAME}`;
-    page = <EditorPage sections={sections} isDev={isDev} />;
-  } else if (route.type === "detail" && detailItem) {
+  if (route.type === "detail" && detailItem) {
     pageTitle = `${detailItem.detailTitle} - ${SITE_NAME}`;
     page = <DetailPage section={route.section} item={detailItem} />;
   } else {
@@ -41,7 +36,7 @@ export default function App() {
   }, [pageTitle]);
 
   return (
-    <ShellLayout routeKey={route.section ?? "editor"} isDev={isDev}>
+    <ShellLayout routeKey={route.section ?? "notes"}>
       <ClickSpark sparkColor="#06B6D4" sparkSize={10} sparkRadius={15} sparkCount={8} duration={400}>
         {page}
       </ClickSpark>

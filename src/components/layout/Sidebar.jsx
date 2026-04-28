@@ -1,6 +1,6 @@
 import { sections } from "../../data/site-data.js";
 
-export default function Sidebar({ activeRoute, isDev }) {
+export default function Sidebar({ activeRoute }) {
   return (
     <aside className="sidebar">
       <h1 className="s-name">YueYuHai</h1>
@@ -40,16 +40,6 @@ export default function Sidebar({ activeRoute, isDev }) {
             <span>{sections.now.label}</span>
           </a>
         </li>
-        {isDev ? (
-          <li data-dev-only>
-            <a href="#/editor" data-route="editor" aria-current={activeRoute === "editor" ? "page" : undefined}>
-              <span className="nav-emoji" aria-hidden="true">
-                ✍️
-              </span>
-              <span>创建内容</span>
-            </a>
-          </li>
-        ) : null}
       </ul>
 
       <div className="s-links">

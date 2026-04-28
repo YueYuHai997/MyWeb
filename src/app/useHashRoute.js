@@ -1,18 +1,10 @@
 import { useEffect, useState } from "react";
 
-import { getDefaultHash, getRouteState } from "../data/site-data.js";
+import { getRouteState } from "../data/site-data.js";
 
 export function normalizeHashRoute(rawHash) {
   const route = getRouteState(rawHash);
-  let hash = getDefaultHash();
-
-  if (route.type === "editor") {
-    hash = "#/editor";
-  } else if (route.type === "detail") {
-    hash = `#/${route.section}/${route.slug}`;
-  } else {
-    hash = `#/${route.section}`;
-  }
+  const hash = route.type === "detail" ? `#/${route.section}/${route.slug}` : `#/${route.section}`;
 
   return {
     ...route,

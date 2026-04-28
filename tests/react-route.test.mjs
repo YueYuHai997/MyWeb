@@ -20,3 +20,12 @@ test("normalizeHashRoute preserves detail hash", () => {
     hash: "#/projects/demo"
   });
 });
+
+test("normalizeHashRoute redirects editor route back to default list", () => {
+  assert.deepEqual(normalizeHashRoute("#/editor"), {
+    type: "list",
+    section: "notes",
+    slug: null,
+    hash: "#/notes"
+  });
+});

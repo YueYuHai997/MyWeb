@@ -86,10 +86,6 @@ export function getRouteState(hash) {
   const path = normalized.replace(/^#\/?/, "").trim().toLowerCase();
   const [first, second, ...rest] = path.split("/").filter(Boolean);
 
-  if (first === "editor" && !second && rest.length === 0) {
-    return { type: "editor", section: null, slug: null };
-  }
-
   if (!VALID_SECTIONS.includes(first) || rest.length > 0) {
     return { type: "list", section: DEFAULT_SECTION, slug: null };
   }
