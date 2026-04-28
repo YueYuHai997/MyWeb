@@ -4,9 +4,6 @@ node_modules/
 .pnp.js
 
 # 包管理器文件
-package-lock.json
-yarn.lock
-pnpm-lock.yaml
 
 # 构建/编译产物
 dist/
