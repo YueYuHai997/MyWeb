@@ -265,6 +265,7 @@ export function parseMarkdownDocument(section, slug, source, sourcePath = "") {
     detailTitle: title,
     summary,
     lead: summary,
+    cover: normalizeText(data.cover),
     html,
     toc,
     tags: normalizeTags(data.tags),

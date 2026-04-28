@@ -5,16 +5,17 @@ import { readFileSync } from "node:fs";
 import {
   parseMarkdownDocument,
   buildContentIndex
-} from "../src/scripts/content-model.mjs";
+} from "../src/data/content-model.js";
 import {
   SITE_NAME,
   DEFAULT_SECTION,
   getDefaultHash,
   getRouteState,
   createContentBySection,
+  getProjectGalleryItems,
   getSectionNavigationItems,
   sections
-} from "../src/scripts/site-data.mjs";
+} from "../src/data/site-data.js";
 
 test("默认路由跳到 notes 列表页", () => {
   assert.equal(DEFAULT_SECTION, "notes");
@@ -30,8 +31,8 @@ test("阅读和近况使用与笔记一致的列表布局", () => {
 
 test("可以解析编辑器路由", () => {
   assert.deepEqual(getRouteState("#/editor"), {
-    type: "editor",
-    section: null,
+    type: "list",
+    section: "notes",
     slug: null
   });
 });
@@ -211,4 +212,38 @@ test("真实 Markdown 内容可以被聚合到对应 section", () => {
 
   assert.equal(content.projects[0].slug, "ai-book-notes-assistant");
   assert.equal(content.notes[0].slug, "rag-search-quality");
+});
+
+test("parseMarkdownDocument includes cover when present", () => {
+  const source = `---
+title: Demo Project
+date: 2026-04-27
+cover: /content-assets/projects/demo-cover.png
+---
+
+正文`;
+
+  const item = parseMarkdownDocument("projects", "demo-project", source, "content/projects/demo-project.md");
+
+  assert.equal(item.cover, "/content-assets/projects/demo-cover.png");
+});
+
+test("getProjectGalleryItems maps projects to circular gallery items", () => {
+  const content = createContentBySection({
+    "../../content/projects/demo.md": `---
+title: Demo Project
+date: 2026-04-21
+cover: /content-assets/projects/demo-cover.png
+---
+
+正文`
+  });
+
+  assert.deepEqual(getProjectGalleryItems(content.projects), [
+    {
+      image: "/content-assets/projects/demo-cover.png",
+      text: "Demo Project",
+      href: "#/projects/demo"
+    }
+  ]);
 });
