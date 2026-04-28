@@ -66,3 +66,20 @@
 [2m12:23:23[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/styles/site.css?direct[22m
 [2m12:23:30[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [31merror while updating dependencies:
 Error: EPERM: operation not permitted, rename 'D:\MyWeb\node_modules\.vite\deps_temp_0411a3dc' -> 'D:\MyWeb\node_modules\.vite\deps'[39m
+[2m12:28:49[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2msrc/data/site-data.js[22m
+[2m12:28:57[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2msrc/app/useHashRoute.js[22m
+[2m12:28:58[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32m✨ new dependencies optimized: [33mreact[32m[39m
+[2m12:28:58[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32m✨ optimized dependencies changed. reloading[39m
+[2m12:28:59[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32m✨ new dependencies optimized: [33mreact-dom/client, ogl[32m[39m
+[2m12:28:59[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32m✨ optimized dependencies changed. reloading[39m
+[2m12:29:03[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2msrc/app/useHashRoute.js[22m
+[2m12:30:03[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2msrc/app/App.jsx[22m
+[2m12:30:22[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2msrc/components/layout/ShellLayout.jsx[22m
+[2m12:30:37[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2msrc/components/layout/Sidebar.jsx[22m
+[2m12:32:01[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2msrc/app/App.jsx[22m
+[2m12:32:35[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2msrc/components/layout/ShellLayout.jsx[22m
+[2m12:32:43[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2msrc/components/layout/Sidebar.jsx[22m
+[2m12:34:07[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2msrc/app/App.jsx[22m
+[2m12:34:13[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2msrc/components/layout/ShellLayout.jsx[22m
+[2m12:34:20[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2msrc/components/layout/Sidebar.jsx[22m
+[2m12:34:26[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2msrc/main.jsx[22m
