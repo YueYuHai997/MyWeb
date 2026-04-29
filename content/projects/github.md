@@ -24,8 +24,8 @@ tags:
 	- 一键跳转 GitHub
 
 ## 截图
-![本地图片](/images/githubs/1.png)
-![本地图片](/images/githubs/2.png)
+![本地图片](./images/githubs/1.png)
+![本地图片](。/images/githubs/2.png)
 
 ## 地址
 [项目地址](https://github.com/YueYuHai997/Hotspots-on-Github)
