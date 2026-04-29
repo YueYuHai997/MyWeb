@@ -1,6 +1,6 @@
 ---
 title: "Github热点项目"
-status: "关闭"
+status: ""
 date: "2026-03-28"
 summary: "Github 热点项目合集、热门趋势排行榜"
 cover: "/content-assets/projects/gits.png"
@@ -25,7 +25,7 @@ tags:
 
 ## 截图
 ![本地图片](./images/githubs/1.png)
-![本地图片](。/images/githubs/2.png)
+![本地图片](./images/githubs/2.png)
 
 ## 地址
 [项目地址](https://github.com/YueYuHai997/Hotspots-on-Github)

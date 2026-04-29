@@ -1,6 +1,6 @@
 ---
 title: "智能植物养护助手"
-status: "已完毕"
+status: ""
 date: "2026-04-29"
 summary: "面向家庭、个人的智能植物养护项目"
 cover: "/content-assets/projects/plane.png"

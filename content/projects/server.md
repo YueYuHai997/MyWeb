@@ -1,6 +1,6 @@
 ---
 title: "通用服务器对战框架及监控系统"
-status: "完结"
+status: ""
 date: "2026-04-18"
 summary: " 基于Protobuf、Go的局域网通用对战服务器，及状态监控系统"
 cover: "/content-assets/projects/server.png"
