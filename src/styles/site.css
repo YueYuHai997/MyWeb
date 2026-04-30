@@ -227,6 +227,13 @@ button {
   font-family: "Lora", "Noto Serif SC", serif;
 }
 
+.sidebar-rotating-text-chip.text-rotate {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
 .sidebar-rotating-text-split {
   overflow: hidden;
   padding-bottom: 2px;
