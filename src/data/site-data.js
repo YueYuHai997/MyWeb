@@ -1,6 +1,6 @@
 import { VALID_SECTIONS, buildContentIndex } from "./content-model.js";
 
-export const SITE_NAME = "YueYuHai 的学习日记";
+export const SITE_NAME = "我の编程笔记";
 export const DEFAULT_SECTION = "notes";
 const APP_BASE_URL = import.meta.env?.BASE_URL || "/";
 

@@ -20,7 +20,22 @@ import {
 test("默认路由跳到 notes 列表页", () => {
   assert.equal(DEFAULT_SECTION, "notes");
   assert.equal(getDefaultHash(), "#/notes");
-  assert.equal(SITE_NAME, "YueYuHai 的学习日记");
+  assert.equal(SITE_NAME, "我の编程笔记");
+});
+
+test("首页 HTML 使用新的站点标题并声明 favicon", () => {
+  const indexHtml = readFileSync(new URL("../index.html", import.meta.url), "utf8");
+
+  assert.match(indexHtml, /<title>我の编程笔记<\/title>/);
+  assert.match(indexHtml, /rel="icon" href="\/favicon\.svg" type="image\/svg\+xml"/);
+  assert.match(indexHtml, /rel="shortcut icon" href="\/favicon\.svg"/);
+});
+
+test("favicon.svg 使用笔记本图标", () => {
+  const faviconSvg = readFileSync(new URL("../public/favicon.svg", import.meta.url), "utf8");
+
+  assert.match(faviconSvg, /<svg[\s\S]*<\/svg>/);
+  assert.match(faviconSvg, /📓/);
 });
 
 test("阅读和近况使用与笔记一致的列表布局", () => {
