@@ -33,7 +33,7 @@ body {
 body {
   background: var(--bg);
   color: var(--body);
-  font-family: "Inter", "Noto Sans SC", "Microsoft YaHei UI", sans-serif;
+  font-family: "Lora", "Noto Serif SC", serif;
   font-size: 15px;
   line-height: 1.75;
 }
@@ -83,6 +83,14 @@ button {
   line-height: 1.2;
 }
 
+.s-name-gradient {
+  cursor: default;
+}
+
+.s-name-gradient .text-content {
+  line-height: 1.22;
+}
+
 .s-sub {
   color: var(--muted);
   margin-top: 4px;
@@ -113,6 +121,7 @@ button {
   color: var(--muted);
   text-decoration: none;
   font-size: 14px;
+  font-weight: 700;
   transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
 }
 
@@ -276,7 +285,7 @@ button {
 .section-desc {
   color: var(--muted);
   font-size: 13px;
-  font-family: "JetBrains Mono", monospace;
+  font-family: "Lora", "Noto Serif SC", serif;
 }
 
 .post-list {
@@ -325,7 +334,7 @@ button {
   font-size: 12px;
   color: var(--muted);
   margin: 6px 0;
-  font-family: "JetBrains Mono", monospace;
+  font-family: "Lora", "Noto Serif SC", serif;
 }
 
 .post-body {
@@ -346,7 +355,7 @@ button {
   padding: 2px 8px;
   background: var(--tag-bg);
   color: var(--tag-text);
-  font-family: "JetBrains Mono", monospace;
+  font-family: "Lora", "Noto Serif SC", serif;
 }
 
 .context-panel {
@@ -367,7 +376,7 @@ button {
 .context-eyebrow {
   color: var(--muted);
   font-size: 12px;
-  font-family: "JetBrains Mono", monospace;
+  font-family: "Lora", "Noto Serif SC", serif;
   margin-bottom: 8px;
 }
 
@@ -411,7 +420,7 @@ button {
 
 .context-index {
   font-size: 11px;
-  font-family: "JetBrains Mono", monospace;
+  font-family: "Lora", "Noto Serif SC", serif;
   color: #a8a29e;
 }
 
@@ -495,7 +504,7 @@ button {
 .detail-section-name {
   color: var(--muted);
   font-size: 12px;
-  font-family: "JetBrains Mono", monospace;
+  font-family: "Lora", "Noto Serif SC", serif;
   margin-bottom: 8px;
 }
 
@@ -509,7 +518,7 @@ button {
 .detail-meta {
   color: var(--muted);
   font-size: 13px;
-  font-family: "JetBrains Mono", monospace;
+  font-family: "Lora", "Noto Serif SC", serif;
   margin-top: 10px;
 }
 
@@ -633,7 +642,7 @@ button {
 }
 
 .detail-body code {
-  font-family: "JetBrains Mono", monospace;
+  font-family: "Lora", "Noto Serif SC", serif;
   font-size: 13px;
   background: #f5f3ee;
   border-radius: 4px;
@@ -748,7 +757,7 @@ button {
 .editor-field span {
   color: var(--muted);
   font-size: 12px;
-  font-family: "JetBrains Mono", monospace;
+  font-family: "Lora", "Noto Serif SC", serif;
 }
 
 .editor-field input,
@@ -809,7 +818,7 @@ button {
   padding: 12px 14px;
   color: var(--muted);
   font-size: 12px;
-  font-family: "JetBrains Mono", monospace;
+  font-family: "Lora", "Noto Serif SC", serif;
 }
 
 .editor-textarea {
@@ -821,7 +830,7 @@ button {
   background: transparent;
   padding: 16px;
   color: var(--body);
-  font: 14px/1.8 "JetBrains Mono", monospace;
+  font: 14px/1.8 "Lora", "Noto Serif SC", serif;
 }
 
 .editor-preview {

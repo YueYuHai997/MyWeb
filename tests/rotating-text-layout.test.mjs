@@ -7,8 +7,10 @@ const sidebarComponent = readFileSync(new URL("../src/components/layout/Sidebar.
 
 test("Sidebar renders rotating text before the profile heading", () => {
   assert.match(sidebarComponent, /<div className="sidebar-rotating-text">/);
-  assert.match(sidebarComponent, /<span className="sidebar-rotating-text-label">Create<\/span>/);
-  assert.match(sidebarComponent, /<h1 className="s-name">YueYuHai<\/h1>/);
+  assert.match(sidebarComponent, /<span className="sidebar-rotating-text-label">K e e p<\/span>/);
+  assert.match(sidebarComponent, /<h1 className="s-name">/);
+  assert.match(sidebarComponent, /<GradientText/);
+  assert.match(sidebarComponent, />\s*YueYuHai\s*<\/GradientText>/);
 });
 
 test("site styles place the rotating text inside the sidebar header area", () => {

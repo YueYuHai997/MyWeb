@@ -1,4 +1,5 @@
 import { sections } from "../../data/site-data.js";
+import GradientText from "../effects/GradientText.jsx";
 import RotatingText from "../effects/RotatingText.jsx";
 
 const ROTATING_TEXTS = ["thinking", "Learning", "Creating"];
@@ -22,7 +23,18 @@ export default function Sidebar({ activeRoute }) {
             rotationInterval={3200}
           />
         </div>
-        <h1 className="s-name">YueYuHai</h1>
+        <h1 className="s-name">
+          <GradientText
+            colors={["#0500ff","#0f63a7", "#37bbc4"]}
+            animationSpeed={3.2}
+            showBorder={false}
+            direction="horizontal"
+            pauseOnHover={false}
+            className="s-name-gradient"
+          >
+            YueYuHai
+          </GradientText>
+        </h1>
         <p className="s-sub">自由开发者 · 在探索中成长</p>
         <p className="s-bio">Stay Hungry, Stay Foolish</p>
 

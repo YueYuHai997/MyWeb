@@ -2,9 +2,9 @@ export const CIRCULAR_GALLERY_LAYOUT = {
   mediaBaseHeight: 700,
   mediaBaseWidth: 520,
   titleFont: "bold 26px monospace",
-  titleScaleRatio: 0.12,
+  titleScaleRatio: 0.14,
   titleOffsetRatio: 0.35,
-  titleGap: 0.02
+  titleGap: 0.05,
 };
 
 export function getMediaScale(screenHeight) {
