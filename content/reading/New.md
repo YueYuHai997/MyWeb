@@ -16,12 +16,13 @@ tags:
 5. [shadcn](ui.shadcn.com)  顶级 现成组件们，还可以。
 6. [scrollxui](scrollxui.dev) 夯 基础组件丰富，但是效果偏怕朴素，效果还可以。
 7. [animejs](animejs.com) 夯 网页动画效果。
+8. [scrolltide](www.scrolltide.co) NPC ，网页模板网站，效果还行，不过全是付费。
 
 
 
 ## 辅助设计工具
 
-1. [subframe](app.subframe.com)
-2. Open Design
-3. [stitch](stitch.withgoogle.com)
+1. [subframe](app.subframe.com) 网页设计工具
+2. Open Design  辅助设计工具
+3. [stitch ](stitch.withgoogle.com)  网页设计工具
 
