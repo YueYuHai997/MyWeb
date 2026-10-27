@@ -17,6 +17,10 @@ tags:
 6. [scrollxui](scrollxui.dev) 夯 基础组件丰富，但是效果偏怕朴素，效果还可以。
 7. [animejs](animejs.com) 夯 网页动画效果。
 8. [scrolltide](www.scrolltide.co) NPC ，网页模板网站，效果还行，不过全是付费。
+9. [aceternity](ui.aceternity.com) 夯，主打一个创意，但是有付费内容
+10. [smoothui](smoothui.dev) NPC ,网页基础效果，效果不多
+11. [vibeui](vibeui.club) 效果挺多的，展现效果中等，有付费内容不多，还是偏网页基础
+12. [uiverse](uiverse.io)
 
 
 
